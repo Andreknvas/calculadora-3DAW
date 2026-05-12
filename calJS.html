@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora Simples</title>
+</head>
+<body>
+
+    <input type="number" id="n1">
+    <select id="op">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    <input type="number" id="n2">
+    
+    <button onclick="calcular()">=</button>
+    
+    <strong id="res"></strong>
+
+    <script>
+        function calcular() {
+            const n1 = parseFloat(document.getElementById('n1').value);
+            const n2 = parseFloat(document.getElementById('n2').value);
+            const op = document.getElementById('op').value;
+            const res = document.getElementById('res');
+            let calculo;
+
+            if (isNaN(n1) || isNaN(n2)) {
+                res.innerText = "Insira números";
+                return;
+            }
+
+            switch (op) {
+                case '+': calculo = n1 + n2; break;
+                case '-': calculo = n1 - n2; break;
+                case '*': calculo = n1 * n2; break;
+                case '/': calculo = n2 !== 0 ? n1 / n2 : "Erro (div/0)"; break;
+            }
+
+            res.innerText = calculo;
+        }
+    </script>
+</body>
+</html>
